@@ -1,1 +1,57 @@
-<p>dashboard works!</p>
+<div class="flex-row-layout jc-space-between ai-stretch">
+  <div class="students">
+    <div *ngFor="let student of students"
+      class="card students-item flex-row-layout">
+      <div class="avatar"></div>
+      <div class="info">
+        <p class="info-name text-bold">Nombre Apellido</p>
+        <div class="info-summary">
+          <p>Carrera: Ingeniería Comercial</p>
+          <div class="flex-row-layout">
+            <p>Currículum: COD-INGCOM</p>
+            <p>Nivel: 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card dashboard">
+    <h1 class="text-bold text-center">BIENVENIDO NOMBRE ADMIN</h1>
+    <p class="dashboard-description">Te recordamos tu estado de edición de estudiantes:</p>
+    <div class="dashboard-summary">
+      <div class="group flex-row-layout">
+        <p class="group-label text-bold">Pendientes por editar</p>
+        <div class="group-bar">
+          <div class="progress-bar">
+            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+          </div>
+        </div>
+        <div class="group-numbers">
+          <p>60% o 3/5</p>
+        </div>
+      </div>
+      <div class="group flex-row-layout">
+        <p class="group-label text-bold">Bloqueados</p>
+        <div class="group-bar">
+          <div class="progress-bar">
+            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+          </div>
+        </div>
+        <div class="group-numbers">
+          <p>20% o 1/5</p>
+        </div>
+      </div>
+      <div class="group flex-row-layout">
+        <p class="group-label text-bold">Editados</p>
+        <div class="group-bar">
+          <div class="progress-bar">
+            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+          </div>
+        </div>
+        <div class="group-numbers">
+          <p>20% o 1/5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

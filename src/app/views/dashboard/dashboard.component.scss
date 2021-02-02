@@ -1,0 +1,92 @@
+@import "../../../assets/styles/colors.scss";
+
+.card{
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 10px 10px rgba(34, 48, 63, 0.25);
+  padding: 20px 24px;
+}
+
+.students{
+  flex-grow: 1;
+  padding-right: 24px;
+  &-item{
+    height: 100px;
+    margin-bottom: 20px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    .avatar{
+      background-color: #C4C4C4;
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+    }
+    .info{
+      flex-grow: 2;
+      margin-left: 24px;
+      &-name{
+        color: $color-grey-100;
+      }
+      &-summary{
+        color: $color-dark-blue;
+        font-size: 12px;
+        margin-top: 10px;
+        p{
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+.dashboard{
+  color: $color-grey-75;
+  flex-grow: 2;
+  padding: 0 50px;
+
+  h1{
+    margin-top: 50px;
+    color: $color-primary;
+  }
+
+  &-description{
+    margin: 50px 0;
+  }
+
+  &-summary{
+    margin-top: 50px;
+
+    .group{
+      margin-bottom: 24px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      &-label{
+        width: 180px;
+      }
+      &-bar{
+        flex-grow: 1;
+      }
+      &-numbers{
+
+      }
+    }
+  }
+}
+
+.progress-bar{
+  background: #EFEFEF;
+  border-radius: 12px;
+  height: 24px;
+  margin: auto;
+  width: 90%;
+
+  .percent{
+    background-color: $color-accent;
+    border-radius: 12px;
+    height: 24px;
+    width: 0;
+  }
+}

@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  public students = [
+    { id: 1},
+    { id: 2},
+    { id: 3},
+    { id: 4},
+    { id: 5},
+    { id: 6},
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
