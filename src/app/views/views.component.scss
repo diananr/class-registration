@@ -1,0 +1,36 @@
+@import "../../assets/styles/colors.scss";
+
+.header{
+  border-radius: 0px 0px 16px 16px;
+  box-shadow: 0px 1px 10px rgba(34, 48, 63, 0.25);
+  padding: 20px 40px;
+
+  .user{
+    color: $color-primary;
+    &-avatar{
+      background-color: #C4C4C4;
+      border-radius: 50%;
+      height: 60px;
+      margin-left: 20px;
+      width: 60px;
+    }
+  }
+}
+
+.section{
+  background-color: #EFEFEF;
+  min-height: 75vh;
+  padding: 40px;
+}
+
+.footer{
+  background: $color-gradient;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px;
+
+  .isotipo{
+    margin-left: 20px;
+  }
+}
