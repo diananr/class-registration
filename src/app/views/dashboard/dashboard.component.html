@@ -1,7 +1,8 @@
 <div class="flex-row-layout jc-space-between ai-stretch">
   <div class="students">
     <div *ngFor="let student of students"
-      class="card students-item flex-row-layout">
+      class="card students-item flex-row-layout"
+      (click)="goToStudentDetail(student.id)">
       <div class="avatar"></div>
       <div class="info">
         <p class="info-name text-bold">Nombre Apellido</p>

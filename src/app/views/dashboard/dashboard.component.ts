@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,9 +17,15 @@ export class DashboardComponent implements OnInit {
     { id: 6},
   ]
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  goToStudentDetail(studentId: number){
+    this.router.navigateByUrl(`/student`);
   }
 
 }

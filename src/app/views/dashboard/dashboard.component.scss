@@ -7,6 +7,13 @@
   padding: 20px 24px;
 }
 
+.avatar{
+  background-color: #C4C4C4;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
 .students{
   flex-grow: 1;
   padding-right: 24px;
@@ -16,17 +23,11 @@
     &:last-child{
       margin-bottom: 0;
     }
-    .avatar{
-      background-color: #C4C4C4;
-      border-radius: 50%;
-      height: 60px;
-      width: 60px;
-    }
     .info{
       flex-grow: 2;
       margin-left: 24px;
       &-name{
-        color: $color-grey-100;
+        color: $color-grey;
       }
       &-summary{
         color: $color-dark-blue;

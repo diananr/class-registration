@@ -7,6 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentDetailComponent implements OnInit {
 
+  public tabSelected = 'personal-data'
+  public courses = [
+    {id: 1},
+    {id: 1},
+    {id: 1},
+    {id: 1},
+    {id: 1},
+    {id: 1},
+    {id: 1},
+    {id: 1},
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
