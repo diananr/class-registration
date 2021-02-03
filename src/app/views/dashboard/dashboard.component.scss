@@ -23,6 +23,12 @@
     &:last-child{
       margin-bottom: 0;
     }
+    &.border-green{
+      border: 1px solid green;
+    }
+    &.border-red{
+      border: 1px solid red;
+    }
     .info{
       flex-grow: 2;
       margin-left: 24px;

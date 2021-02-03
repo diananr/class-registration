@@ -2,15 +2,16 @@
   <div class="students">
     <div *ngFor="let student of students"
       class="card students-item flex-row-layout"
+      [ngClass]="{'border-green': student.state=='confirmed', 'border-red': student.state=='error'}"
       (click)="goToStudentDetail(student.id)">
       <div class="avatar"></div>
       <div class="info">
-        <p class="info-name text-bold">Nombre Apellido</p>
+        <p class="info-name text-bold">{{student.name}}</p>
         <div class="info-summary">
           <p>Carrera: Ingeniería Comercial</p>
           <div class="flex-row-layout">
             <p>Currículum: COD-INGCOM</p>
-            <p>Nivel: 2</p>
+            <p>Nivel: {{student.enrollments[0].level}}</p>
           </div>
         </div>
       </div>
@@ -21,36 +22,36 @@
     <p class="dashboard-description">Te recordamos tu estado de edición de estudiantes:</p>
     <div class="dashboard-summary">
       <div class="group flex-row-layout">
-        <p class="group-label text-bold">Pendientes por editar</p>
+        <p class="group-label text-bold">{{studentsSummary.pending.label}}</p>
         <div class="group-bar">
           <div class="progress-bar">
-            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+            <div class="percent" [ngStyle]="{width: studentsSummary.pending.percent}"></div>
           </div>
         </div>
         <div class="group-numbers">
-          <p>60% o 3/5</p>
+          <p>{{studentsSummary.pending.percent}} o {{studentsSummary.pending.counter}}/{{students.length}}</p>
         </div>
       </div>
       <div class="group flex-row-layout">
-        <p class="group-label text-bold">Bloqueados</p>
+        <p class="group-label text-bold">{{studentsSummary.block.label}}</p>
         <div class="group-bar">
           <div class="progress-bar">
-            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+            <div class="percent" [ngStyle]="{width: studentsSummary.block.percent}"></div>
           </div>
         </div>
         <div class="group-numbers">
-          <p>20% o 1/5</p>
+          <p>{{studentsSummary.block.percent}} o {{studentsSummary.block.counter}}/{{students.length}}</p>
         </div>
       </div>
       <div class="group flex-row-layout">
-        <p class="group-label text-bold">Editados</p>
+        <p class="group-label text-bold">{{studentsSummary.confirmed.label}}</p>
         <div class="group-bar">
           <div class="progress-bar">
-            <div class="percent" [ngStyle]="{width: '60%'}"></div>
+            <div class="percent" [ngStyle]="{width: studentsSummary.confirmed.percent}"></div>
           </div>
         </div>
         <div class="group-numbers">
-          <p>20% o 1/5</p>
+          <p>{{studentsSummary.confirmed.percent}} o {{studentsSummary.confirmed.counter}}/{{students.length}}</p>
         </div>
       </div>
     </div>
