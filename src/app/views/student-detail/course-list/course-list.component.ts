@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { COURSE_STATE } from 'src/app/core/constants/course-state';
 import { Student } from 'src/app/core/models/student.model';
 
 @Component({
@@ -34,11 +35,11 @@ export class CourseListComponent implements OnInit {
     this.courses = localData ? localData.courses : this.student.enrollments[0].courses;
 
     this.courses.map(course => {
-      const isChecked = localData ? course.checked : course.state === 'approved';
+      const isChecked = localData ? course.checked : course.state === COURSE_STATE.APPROVED;
 
       course.checked = isChecked;
 
-      this.addField(course.state === 'approved');
+      this.addField(course.state === COURSE_STATE.APPROVED);
       courseList.push({
         id: course.id,
         checked: isChecked
