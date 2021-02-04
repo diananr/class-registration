@@ -12,7 +12,7 @@ export class StudentDetailComponent implements OnInit {
 
   private studentId: string;
   public student: any;
-
+  public coursesAdded: number = 0;
 
   constructor(
     private route: ActivatedRoute,

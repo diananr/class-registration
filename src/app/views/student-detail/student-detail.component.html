@@ -1,6 +1,9 @@
 <div *ngIf="student" class="student-detail">
   <div class="student-detail-profile">
-    <student-profile [student]="student"></student-profile>
+    <student-profile
+      [student]="student"
+      [coursesAdded]="coursesAdded">
+    </student-profile>
   </div>
   <div class="student-detail-tabs card">
     <div class="tabs">
@@ -17,7 +20,9 @@
         <student-form [student]="student"></student-form>
       </section>
       <section *ngIf="tabSelected=='add-courses'">
-        <course-list [courses]="student.enrollments[0].courses"></course-list>
+        <course-list
+          [student]="student"
+          (coursesAddedEvent)="coursesAdded=$event"></course-list>
       </section>
     </div>
   </div>

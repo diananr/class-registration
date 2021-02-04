@@ -6,7 +6,7 @@
         <span>Dirección</span>
         <span>:</span>
       </label>
-      <input type="text" formControlName="address">
+      <input type="text" formControlName="address" placeholder="Dirección estudiante">
     </div>
     <div class="form-item">
       <label class="flex-row-layout">
@@ -16,7 +16,7 @@
       <div formArrayName="phone_number">
         <div *ngFor="let control of studentFG.controls['phone_number']['controls']; let i = index"
           [formGroupName]="i" class="dynamic-field flex-row-layout">
-          <input type="text" formControlName="value">
+          <input type="tel" formControlName="value" placeholder="+56 9 9999 9999">
           <div>
             <div class="dynamic-field-add" [ngClass]="{'disabled': studentFG.value.phone_number.length == 2}"
               *ngIf="i == 0" (click)="addField('phone_number')">
@@ -37,7 +37,7 @@
       <div formArrayName="email">
         <div *ngFor="let control of studentFG.controls['email']['controls']; let i = index"
           [formGroupName]="i" class="dynamic-field flex-row-layout">
-          <input type="text" formControlName="value">
+          <input type="email" formControlName="value" placeholder="estudiante@email.com">
           <div>
             <div class="dynamic-field-add" [ngClass]="{'disabled': studentFG.value.email.length == 2}"
               *ngIf="i == 0" (click)="addField('email')">
@@ -55,14 +55,14 @@
         <span>Fecha de Nac</span>
         <span>:</span>
       </label>
-      <input type="date" formControlName="birth_date">
+      <input type="date" formControlName="birth_date" placeholder="dd/MM/yyyy">
     </div>
     <div class="form-item">
       <label class="flex-row-layout">
         <span>Currículo</span>
         <span>:</span>
       </label>
-      <input type="text" formControlName="code">
+      <input type="text" formControlName="code" placeholder="COD-CURR">
     </div>
   </div>
   <div class="form-buttons flex-row-layout jc-flex-end">

@@ -56,8 +56,8 @@ export class DashboardComponent implements OnInit {
     this.getStudents();
   }
 
-  goToStudentDetail(studentId: number){
-    this.router.navigateByUrl(`/student/${studentId}`);
+  goToStudentDetail(student: any){
+    if(student.state == 'pending') this.router.navigateByUrl(`/student/${student.id}`);
   }
 
 }

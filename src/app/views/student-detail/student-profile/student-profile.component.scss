@@ -21,10 +21,15 @@
     width: 100%;
     .texts{
       width: 100%;
-    }
-    h1{
-      color: $color-dark-blue-75;
-      margin-bottom: 24px;
+      h1{
+        color: $color-dark-blue-75;
+        margin-bottom: 24px;
+      }
+      .text-accent{
+        label, p{
+          color: $color-accent;
+        }
+      }
     }
   }
 

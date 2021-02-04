@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/core/services/student.service';
 })
 export class StudentProfileComponent implements OnInit {
   @Input() public student: any;
+  @Input() public coursesAdded: number = 0;
 
   constructor(
     private router: Router,

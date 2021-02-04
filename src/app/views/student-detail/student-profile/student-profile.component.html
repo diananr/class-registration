@@ -10,7 +10,7 @@
           <span>Dirección</span>
           <span>:</span>
         </label>
-        <p>Dirección estudiante</p>
+        <p>{{student.address}}</p>
       </div>
       <div class="form-item">
         <label class="flex-row-layout">
@@ -56,15 +56,15 @@
           <p>{{student.enrollments[0].level}}</p>
         </div>
       </div>
-      <div class="form-item">
+      <div class="form-item" [ngClass]="{'text-accent': coursesAdded != 0}">
         <label class="flex-row-layout">
           <span>A. Agregadas</span>
           <span>:</span>
         </label>
-        <p>0</p>
+        <p>{{coursesAdded}}</p>
       </div>
     </div>
-    <button class="btn btn-lg btn-accent" disabled
+    <button class="btn btn-lg btn-accent" [disabled]="coursesAdded == 0"
       (click)="confirmStudent()">
       Confirmar estudiante
     </button>

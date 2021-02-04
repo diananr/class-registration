@@ -1,4 +1,5 @@
-<form class="course flex-col-layout jc-space-between">
+<form class="course flex-col-layout jc-space-between"
+  [formGroup]="listFG" (ngSubmit)="saveCourses()">
   <div class="course-list">
     <div class="head">
       <div class="flex-row-layout">
@@ -8,14 +9,19 @@
         <div class="col"></div>
       </div>
     </div>
-    <div class="body">
-      <div class="row" *ngFor="let item of courses">
+    <div class="body" formArrayName="courses">
+      <div class="row"
+        *ngFor="let item of listFG.controls['courses']['controls']; let i = index"
+        [formGroupName]="i">
         <div class="flex-row-layout">
-          <div class="col name">{{item.course.name}}</div>
-          <div class="col">{{item.state}}</div>
-          <div class="col">{{item.course.level}}</div>
+          <div class="col name">{{courses[i].course.name}}</div>
+          <div class="col">{{courses[i].state}}</div>
+          <div class="col">{{courses[i].course.level}}</div>
           <div class="col">
-            <input type="checkbox" [disabled]="item.state === 'approved'" [checked]="item.state === 'approved'">
+            <input type="checkbox"
+              [checked]="item.checked"
+              formControlName="checked"
+              (change)="onCheckboxChange(item, $event)">
           </div>
         </div>
       </div>
@@ -23,6 +29,10 @@
   </div>
   <div class="course-buttons flex-row-layout jc-flex-end">
     <button class="btn btn-secondary">Cancelar</button>
-    <button class="btn btn-primary" [disabled]="">Guardar</button>
+    <button class="btn btn-primary"
+      [disabled]="addedCourse.length == 0"
+      type="submit">
+      Guardar
+    </button>
   </div>
 </form>

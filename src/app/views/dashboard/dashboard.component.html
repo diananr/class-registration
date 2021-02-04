@@ -3,7 +3,7 @@
     <div *ngFor="let student of students"
       class="card item flex-row-layout"
       [ngClass]="{'border-green': student.state=='confirmed', 'border-red': student.state=='error'}"
-      (click)="goToStudentDetail(student.id)">
+      (click)="goToStudentDetail(student)">
       <div class="item-photo">
         <div class="avatar" [ngStyle]="{'background-image': 'url('+student.photo_url+')'}"></div>
       </div>
