@@ -49,7 +49,8 @@
         <p class="group-label text-bold">{{studentsSummary.confirmed.label}}</p>
         <div class="group-bar">
           <div class="progress-bar">
-            <div class="percent" [ngStyle]="{width: studentsSummary.confirmed.percent}"></div>
+            <div class="percent" [ngClass]="{'full': studentsSummary.confirmed.percent=='100%'}"
+              [ngStyle]="{width: studentsSummary.confirmed.percent}"></div>
           </div>
         </div>
         <div class="group-numbers">

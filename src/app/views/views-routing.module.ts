@@ -16,6 +16,10 @@ const routes: Routes = [
       {
         path: 'student/:studentId',
         component: StudentDetailComponent
+      },
+      {
+        path: '**',
+        redirectTo: ''
       }
     ]
   }

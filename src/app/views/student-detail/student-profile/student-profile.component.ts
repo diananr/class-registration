@@ -24,9 +24,7 @@ export class StudentProfileComponent implements OnInit {
       (response: any)=>{
         this.router.navigateByUrl('/');
       },
-      (error: any)=>{
-        console.log('error', error);
-      }
+      (error: any)=>{}
     )
   }
 

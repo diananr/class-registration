@@ -53,7 +53,6 @@ export class CourseListComponent implements OnInit {
   }
 
   saveCourses(){
-    console.log('this.courses', this.courses);
     sessionStorage.setItem(this.student.id, JSON.stringify({courses : this.courses}));
     this.coursesAddedEvent.emit(this.addedCourse.length);
   }

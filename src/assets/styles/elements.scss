@@ -104,6 +104,9 @@ $avatar-size: (
   &-accent{
     background-color: #02C39A;
     color: white;
+    &:hover{
+      background-color: #008B6E;
+    }
     &:disabled{
       background-color: #CACBD3;
       cursor: auto;
@@ -116,6 +119,7 @@ $avatar-size: (
   color: $color-dark-blue;
   margin-bottom: 10px;
   flex: 1;
+
   label{
     justify-content: space-between;
     flex: 1 0 120px;
@@ -124,15 +128,30 @@ $avatar-size: (
     margin-right: 5px;
   }
 
-  input{
-    border: none;
-    border-bottom: 1px solid $color-grey-50;
-    color: $color-grey-75;
-    font-family: $font-primary;
-    font-size: 16px;
-    width: 250px;
-    &:focus{
-      outline: none;
+  p{
+    font-family: $font-light;
+  }
+
+  &.editable{
+    margin-bottom: 20px;
+    label{
+      flex: 1 0 170px;
+      max-width: 170px;
+    }
+
+    input{
+      border: none;
+      border-bottom: 1px solid $color-grey-50;
+      color: $color-grey-75;
+      font-family: $font-light;
+      font-size: 16px;
+      width: 250px;
+      &:focus{
+        outline: none;
+      }
+      &::placeholder{
+        color: #CACBD3;
+      }
     }
   }
 }
@@ -146,8 +165,10 @@ $avatar-size: (
       margin-right: 0;
       justify-content: flex-start;
     }
-    input{
-      width: 84%;
+    &.editable{
+      input{
+        width: 84%;
+      }
     }
   }
 }
@@ -161,8 +182,11 @@ $avatar-size: (
 
   .percent{
     background-color: $color-accent;
-    border-radius: 12px;
+    border-radius: 12px 0 0 12px;
     height: 24px;
     width: 0;
+    &.full{
+      border-radius: 12px;
+    }
   }
 }

@@ -1,6 +1,12 @@
 @font-face {
   font-family: 'OpenSans';
-  src: url('/fonts/OpenSans-Regular.ttf') format('truetype')
+  src: url('/assets/fonts/OpenSans-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('/assets/fonts/OpenSans-Light.ttf') format('truetype')
 }
 
 $font-primary: 'OpenSans', sans-serif;
+$font-light: 'OpenSans-Light', sans-serif;

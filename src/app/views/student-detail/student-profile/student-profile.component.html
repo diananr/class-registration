@@ -17,21 +17,25 @@
           <span>Teléfono</span>
           <span>:</span>
         </label>
-        <p>{{student.phone_number[0]}}</p>
+        <div>
+          <p *ngFor="let value of student.phone_number">{{value}}</p>
+        </div>
       </div>
       <div class="form-item">
         <label class="flex-row-layout">
           <span>Email</span>
           <span>:</span>
         </label>
-        <p>{{student.email[0]}}</p>
+        <div>
+          <p *ngFor="let value of student.email">{{value}}</p>
+        </div>
       </div>
       <div class="form-item">
         <label class="flex-row-layout">
           <span>Fecha de Nac</span>
           <span>:</span>
         </label>
-        <p>{{student.birth_date}}</p>
+        <p>{{student.birth_date | date:'dd/MM/YYYY'}}</p>
       </div>
       <div class="form-item">
         <label class="flex-row-layout">

@@ -7,9 +7,11 @@
 
   .user{
     color: $color-primary;
-    margin-right: 20px;
-    &:last-child{
-      margin-right: 0;
+    &-text{
+      margin-right: 10px;
+      p:first-child{
+        margin-bottom: 10px;
+      }
     }
   }
 }

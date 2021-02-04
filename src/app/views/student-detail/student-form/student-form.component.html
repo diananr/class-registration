@@ -1,14 +1,14 @@
 <form class="form flex-col-layout jc-space-between"
   [formGroup]="studentFG" (ngSubmit)="updateStudent()">
   <div class="form-fields">
-    <div class="form-item">
+    <div class="form-item editable">
       <label class="flex-row-layout">
         <span>Dirección</span>
         <span>:</span>
       </label>
       <input type="text" formControlName="address" placeholder="Dirección estudiante">
     </div>
-    <div class="form-item">
+    <div class="form-item editable">
       <label class="flex-row-layout">
         <span>Teléfono</span>
         <span>:</span>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="form-item">
+    <div class="form-item editable">
       <label class="flex-row-layout">
         <span>Email</span>
         <span>:</span>
@@ -50,19 +50,33 @@
         </div>
       </div>
     </div>
-    <div class="form-item">
+    <div class="form-item editable">
       <label class="flex-row-layout">
-        <span>Fecha de Nac</span>
+        <span>Fecha de Nacimiento</span>
         <span>:</span>
       </label>
       <input type="date" formControlName="birth_date" placeholder="dd/MM/yyyy">
     </div>
-    <div class="form-item">
+    <div class="form-item editable">
+      <label class="flex-row-layout">
+        <span>Carrera</span>
+        <span>:</span>
+      </label>
+      <input type="text" formControlName="curriculumName" placeholder="Carrera estudiante">
+    </div>
+    <div class="form-item editable">
       <label class="flex-row-layout">
         <span>Currículo</span>
         <span>:</span>
       </label>
-      <input type="text" formControlName="code" placeholder="COD-CURR">
+      <input type="text" formControlName="curriculumCode" placeholder="COD-CURR">
+    </div>
+    <div class="form-item editable">
+      <label class="flex-row-layout">
+        <span>Nivel</span>
+        <span>:</span>
+      </label>
+      <input type="text" formControlName="level" placeholder="1">
     </div>
   </div>
   <div class="form-buttons flex-row-layout jc-flex-end">

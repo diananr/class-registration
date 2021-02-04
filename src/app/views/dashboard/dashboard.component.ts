@@ -46,9 +46,7 @@ export class DashboardComponent implements OnInit {
         this.studentsSummary.block.percent = `${(this.studentsSummary.block.counter * 100 / this.students.length).toFixed(0)}%`;
         this.studentsSummary.confirmed.percent = `${(this.studentsSummary.confirmed.counter * 100 / this.students.length).toFixed(0)}%`;
       },
-      (error)=>{
-        console.log('error', error);
-      }
+      (error)=>{}
     )
   }
 
