@@ -11,13 +11,34 @@ export class StudentService {
   ) { }
 
   getAllStudents(){
-    const url = 'http://localhost:4200/api/students';
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      })
-    };
-    return this.http.get(url, httpOptions);
+    const url = 'https://plush-spry-hare.gigalixirapp.com/api/students';
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(url, { headers });
+  }
+
+  getStudentById(studentId: string){
+    const url = `https://plush-spry-hare.gigalixirapp.com/api/students/${studentId}`;
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.get(url, { headers });
+  }
+
+  confirmStudent(studentId: string){
+    const url = `https://plush-spry-hare.gigalixirapp.com/api/students/${studentId}?state=confirmed`;
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.put(url, { headers });
+  }
+
+  updateStudent(studentId: string, body: any){
+    const url = `https://plush-spry-hare.gigalixirapp.com/api/students/${studentId}`;
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', '*');
+    return this.http.put(url, {student: body}, { headers });
   }
 }

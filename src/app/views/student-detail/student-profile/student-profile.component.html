@@ -1,0 +1,79 @@
+<div class="profile">
+  <div class="profile-photo">
+    <div class="avatar size-120" [ngStyle]="{'background-image': 'url('+student.photo_url+')'}"></div>
+  </div>
+  <div class="profile-data card flex-col-layout jc-space-between">
+    <div class="texts">
+      <h1 class="text-center text-bold">{{student.name}}</h1>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>Dirección</span>
+          <span>:</span>
+        </label>
+        <p>Dirección estudiante</p>
+      </div>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>Teléfono</span>
+          <span>:</span>
+        </label>
+        <p>{{student.phone_number[0]}}</p>
+      </div>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>Email</span>
+          <span>:</span>
+        </label>
+        <p>{{student.email[0]}}</p>
+      </div>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>Fecha de Nac</span>
+          <span>:</span>
+        </label>
+        <p>{{student.birth_date}}</p>
+      </div>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>Carrera</span>
+          <span>:</span>
+        </label>
+        <p>{{student.enrollments[0].curriculum.name}}</p>
+      </div>
+      <div class="flex-row-layout">
+        <div class="form-item">
+          <label class="flex-row-layout">
+            <span>Currículo</span>
+            <span>:</span>
+          </label>
+          <p>{{student.enrollments[0].curriculum.code}}</p>
+        </div>
+        <div class="form-item">
+          <label class="flex-row-layout">
+            <span>Nivel</span>
+            <span>:</span>
+          </label>
+          <p>{{student.enrollments[0].level}}</p>
+        </div>
+      </div>
+      <div class="form-item">
+        <label class="flex-row-layout">
+          <span>A. Agregadas</span>
+          <span>:</span>
+        </label>
+        <p>0</p>
+      </div>
+    </div>
+    <button class="btn btn-lg btn-accent" disabled
+      (click)="confirmStudent()">
+      Confirmar estudiante
+    </button>
+  </div>
+  <div class="profile-arrow">
+    <a routerLink="/">
+      <div class="arrow-back">
+        <img src="/assets/images/chevron-left.png" alt="Regresar">
+      </div>
+    </a>
+  </div>
+</div>

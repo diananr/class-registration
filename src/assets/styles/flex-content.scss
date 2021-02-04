@@ -19,13 +19,6 @@
   flex: $value;
 }
 
-@mixin flexGrow($value:1) {
-  -webkit-box-flex-grow: $value;
-  -webkit-flex-grow: $value;
-  -ms-flex-grow: $value;
-  flex-grow: $value;
-}
-
 @mixin justifyContent($value:center) {
   -webkit-justify-content: $value;
   justify-content: $value;

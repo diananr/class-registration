@@ -1,0 +1,28 @@
+<form class="course flex-col-layout jc-space-between">
+  <div class="course-list">
+    <div class="head">
+      <div class="flex-row-layout">
+        <div class="col">Nombre asignatura</div>
+        <div class="col">Estado</div>
+        <div class="col">Nivel</div>
+        <div class="col"></div>
+      </div>
+    </div>
+    <div class="body">
+      <div class="row" *ngFor="let item of courses">
+        <div class="flex-row-layout">
+          <div class="col name">{{item.course.name}}</div>
+          <div class="col">{{item.state}}</div>
+          <div class="col">{{item.course.level}}</div>
+          <div class="col">
+            <input type="checkbox" [disabled]="item.state === 'approved'" [checked]="item.state === 'approved'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="course-buttons flex-row-layout jc-flex-end">
+    <button class="btn btn-secondary">Cancelar</button>
+    <button class="btn btn-primary" [disabled]="">Guardar</button>
+  </div>
+</form>

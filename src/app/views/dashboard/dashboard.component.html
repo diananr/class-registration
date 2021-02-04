@@ -1,26 +1,28 @@
-<div class="flex-row-layout jc-space-between ai-stretch">
-  <div class="students">
+<div class="dashboard">
+  <div class="dashboard-students">
     <div *ngFor="let student of students"
-      class="card students-item flex-row-layout"
+      class="card item flex-row-layout"
       [ngClass]="{'border-green': student.state=='confirmed', 'border-red': student.state=='error'}"
       (click)="goToStudentDetail(student.id)">
-      <div class="avatar"></div>
+      <div class="item-photo">
+        <div class="avatar" [ngStyle]="{'background-image': 'url('+student.photo_url+')'}"></div>
+      </div>
       <div class="info">
         <p class="info-name text-bold">{{student.name}}</p>
         <div class="info-summary">
-          <p>Carrera: Ingeniería Comercial</p>
+          <p>Carrera: {{student.enrollments[0].curriculum.name}}</p>
           <div class="flex-row-layout">
-            <p>Currículum: COD-INGCOM</p>
+            <p>Currículum: {{student.enrollments[0].curriculum.code}}</p>
             <p>Nivel: {{student.enrollments[0].level}}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="card dashboard">
+  <div class="dashboard-summary card">
     <h1 class="text-bold text-center">BIENVENIDO NOMBRE ADMIN</h1>
-    <p class="dashboard-description">Te recordamos tu estado de edición de estudiantes:</p>
-    <div class="dashboard-summary">
+    <p class="description">Te recordamos tu estado de edición de estudiantes:</p>
+    <div class="chart">
       <div class="group flex-row-layout">
         <p class="group-label text-bold">{{studentsSummary.pending.label}}</p>
         <div class="group-bar">

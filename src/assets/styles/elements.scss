@@ -1,0 +1,168 @@
+$avatar-size: (
+  '60', '120'
+);
+
+.avatar{
+  background-color: #C4C4C4;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  @each $size in $avatar-size{
+    &.size-#{$size}{
+      height: #{$size+'px'};
+      width: #{$size+'px'};
+    }
+  }
+}
+
+.card{
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0px 10px 10px rgba(34, 48, 63, 0.25);
+}
+
+.arrow-back{
+  background-color: #0199b2;
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabs{
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  padding: 24px;
+  font-size: 18px;
+  cursor: pointer;
+  flex-grow: 1;
+  border-bottom: 2px solid #b7bdcd;
+  height: 70px;
+  &.active{
+    color: $color-primary;
+    border-bottom: 2px solid $color-primary;
+    font-weight: 700;
+  }
+}
+.tabs-container{
+  padding: 24px;
+  height: calc(100% - 70px);
+  section{
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 520px){
+  .tab{
+    font-size: 14px;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+  }
+  .tabs-container{
+    padding: 12px;
+  }
+
+}
+
+.btn{
+  width: 218px;
+  height: 48px;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  &:focus{
+    outline: none;
+  }
+  &-lg{
+    width: 100%;
+  }
+
+  &-primary{
+    background-color: $color-dark-blue;
+    color: white;
+    &:disabled{
+      background-color: #0199B2;
+      cursor: auto;
+    }
+  }
+  &-secondary{
+    border: 2px solid #0199B3;
+    color: #0199B3;
+  }
+  &-accent{
+    background-color: #02C39A;
+    color: white;
+    &:disabled{
+      background-color: #CACBD3;
+      cursor: auto;
+    }
+  }
+}
+
+.form-item{
+  display: flex;
+  color: $color-dark-blue;
+  margin-bottom: 10px;
+  flex: 1;
+  label{
+    justify-content: space-between;
+    flex: 1 0 120px;
+    max-width: 120px;
+    font-weight: 600;
+    margin-right: 5px;
+  }
+
+  input{
+    border: none;
+    border-bottom: 1px solid $color-grey-50;
+    color: $color-grey-75;
+    font-family: $font-primary;
+    font-size: 16px;
+    width: 250px;
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+@media screen and (max-width: 520px){
+  .form-item{
+    flex-direction: column;
+    label{
+      flex: 1;
+      max-width: 100%;
+      margin-right: 0;
+      justify-content: flex-start;
+    }
+    input{
+      width: 84%;
+    }
+  }
+}
+
+.progress-bar{
+  background: #EFEFEF;
+  border-radius: 12px;
+  height: 24px;
+  margin: auto;
+  width: 90%;
+
+  .percent{
+    background-color: $color-accent;
+    border-radius: 12px;
+    height: 24px;
+    width: 0;
+  }
+}

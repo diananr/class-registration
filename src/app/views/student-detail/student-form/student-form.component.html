@@ -1,0 +1,76 @@
+<form class="form flex-col-layout jc-space-between"
+  [formGroup]="studentFG" (ngSubmit)="updateStudent()">
+  <div class="form-fields">
+    <div class="form-item">
+      <label class="flex-row-layout">
+        <span>Dirección</span>
+        <span>:</span>
+      </label>
+      <input type="text" formControlName="address">
+    </div>
+    <div class="form-item">
+      <label class="flex-row-layout">
+        <span>Teléfono</span>
+        <span>:</span>
+      </label>
+      <div formArrayName="phone_number">
+        <div *ngFor="let control of studentFG.controls['phone_number']['controls']; let i = index"
+          [formGroupName]="i" class="dynamic-field flex-row-layout">
+          <input type="text" formControlName="value">
+          <div>
+            <div class="dynamic-field-add" [ngClass]="{'disabled': studentFG.value.phone_number.length == 2}"
+              *ngIf="i == 0" (click)="addField('phone_number')">
+              <img src="/assets/images/add.png" alt="Agregar">
+            </div>
+            <div class="dynamic-field-remove" *ngIf="i == 1" (click)="removeField(i,'phone_number')">
+              <img src="/assets/images/remove.png" alt="Eliminar">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-item">
+      <label class="flex-row-layout">
+        <span>Email</span>
+        <span>:</span>
+      </label>
+      <div formArrayName="email">
+        <div *ngFor="let control of studentFG.controls['email']['controls']; let i = index"
+          [formGroupName]="i" class="dynamic-field flex-row-layout">
+          <input type="text" formControlName="value">
+          <div>
+            <div class="dynamic-field-add" [ngClass]="{'disabled': studentFG.value.email.length == 2}"
+              *ngIf="i == 0" (click)="addField('email')">
+              <img src="/assets/images/add.png" alt="Agregar">
+            </div>
+            <div class="dynamic-field-remove" *ngIf="i == 1" (click)="removeField(i,'email')">
+              <img src="/assets/images/remove.png" alt="Eliminar">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-item">
+      <label class="flex-row-layout">
+        <span>Fecha de Nac</span>
+        <span>:</span>
+      </label>
+      <input type="date" formControlName="birth_date">
+    </div>
+    <div class="form-item">
+      <label class="flex-row-layout">
+        <span>Currículo</span>
+        <span>:</span>
+      </label>
+      <input type="text" formControlName="code">
+    </div>
+  </div>
+  <div class="form-buttons flex-row-layout jc-flex-end">
+    <button class="btn btn-secondary">Cancelar</button>
+    <button class="btn btn-primary"
+      [disabled]="studentFG.invalid"
+      type="submit">
+      Guardar
+    </button>
+  </div>
+</form>

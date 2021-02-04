@@ -14,7 +14,7 @@ const routes: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'student/:id',
+        path: 'student/:studentId',
         component: StudentDetailComponent
       }
     ]

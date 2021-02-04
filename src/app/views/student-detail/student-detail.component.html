@@ -1,83 +1,8 @@
-<div class="student flex-row-layout jc-space-between ai-stretch">
-  <div class="student-summary">
-    <div class="photo">
-      <div class="avatar"></div>
-    </div>
-    <div class="card data">
-      <div>
-        <h1 class="text-center text-bold">NOMBRE APELLIDO</h1>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>Dirección</span>
-            <span>:</span>
-          </label>
-          <p>Dirección estudiante</p>
-        </div>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>Teléfono</span>
-            <span>:</span>
-          </label>
-          <p>+56 9 9999 9999</p>
-        </div>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>Email</span>
-            <span>:</span>
-          </label>
-          <p>email@estudiante.cl</p>
-        </div>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>Fecha de Nac</span>
-            <span>:</span>
-          </label>
-          <p>dd/MM/yyyy</p>
-        </div>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>Carrera</span>
-            <span>:</span>
-          </label>
-          <p>Carrera estudiante</p>
-        </div>
-        <div class="flex-row-layout">
-          <div class="form-item flex-grow-1">
-            <label class="flex-row-layout jc-space-between">
-              <span>Currículo</span>
-              <span>:</span>
-            </label>
-            <p>COD-CURR</p>
-          </div>
-          <div class="form-item flex-grow-1">
-            <label class="flex-row-layout jc-space-between">
-              <span>Nivel</span>
-              <span>:</span>
-            </label>
-            <p>2</p>
-          </div>
-        </div>
-        <div class="form-item">
-          <label class="flex-row-layout jc-space-between">
-            <span>A. Agregadas</span>
-            <span>:</span>
-          </label>
-          <p>0</p>
-        </div>
-      </div>
-      <div class="button-box">
-        <button class="btn btn-lg btn-accent" disabled>Confirmar estudiante</button>
-      </div>
-    </div>
-    <div class="arrow">
-      <a routerLink="/">
-        <div class="arrow-back">
-          <img src="/assets/images/chevron-left.png" alt="Regresar">
-        </div>
-      </a>
-    </div>
+<div *ngIf="student" class="student-detail">
+  <div class="student-detail-profile">
+    <student-profile [student]="student"></student-profile>
   </div>
-  <div class="student-forms card">
+  <div class="student-detail-tabs card">
     <div class="tabs">
       <div class="tab" [ngClass]="{'active': tabSelected=='personal-data'}"
         (click)="tabSelected='personal-data'">
@@ -89,95 +14,10 @@
     </div>
     <div class="tabs-container">
       <section *ngIf="tabSelected=='personal-data'">
-        <form class="student-forms-personal flex-col-layout jc-space-around">
-          <div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Dirección</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Teléfono</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Email</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Fecha de Nac</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Carrera</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Currículo</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-            <div class="form-item">
-              <label class="flex-row-layout jc-space-between">
-                <span>Nivel</span>
-                <span>:</span>
-              </label>
-              <input type="text">
-            </div>
-          </div>
-          <div class="student-forms-buttons flex-row-layout jc-flex-end">
-            <button class="btn btn-secondary">Cancelar</button>
-            <button class="btn btn-primary">Guardar</button>
-          </div>
-        </form>
+        <student-form [student]="student"></student-form>
       </section>
       <section *ngIf="tabSelected=='add-courses'">
-        <form class="student-forms-courses">
-          <div class="form-wrapper">
-            <div>
-              <div class="head">
-                <div class="flex-row-layout">
-                  <div class="flex-grow-1">Nombre asignatura</div>
-                  <div class="flex-grow-1">Estado</div>
-                  <div class="flex-grow-1">Nivel</div>
-                  <div class="flex-grow-1"></div>
-                </div>
-              </div>
-              <div class="body">
-                <div class="row" *ngFor="let course of courses">
-                  <div class="flex-row-layout">
-                    <div class="flex-grow-1">Nombre asignatura</div>
-                    <div class="flex-grow-1">Aprobada</div>
-                    <div class="flex-grow-1">Nivel</div>
-                    <div class="flex-grow-1">
-                      <input type="checkbox">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="student-forms-buttons flex-row-layout jc-flex-end">
-            <button class="btn btn-secondary">Cancelar</button>
-            <button class="btn btn-primary">Guardar</button>
-          </div>
-        </form>
+        <course-list [courses]="student.enrollments[0].courses"></course-list>
       </section>
     </div>
   </div>

@@ -11,10 +11,6 @@ $flex-points: (
 	'60', '65', '70', '75', '80', '85', '90', '95', '100', '33', '66'
 );
 
-$flex-grow-values: (
-	1, 2
-);
-
 @each $ais in $align-items-values{
 	.ais-#{$ais}{
 		@include alignSelf($ais);
@@ -54,11 +50,6 @@ $flex-grow-values: (
 					width: #{$point+'%'};
 				}
 			}
-		}
-	}
-	@each $fg in $flex-grow-values{
-		.flex-grow-#{$fg}{
-			@include flexGrow($fg);
 		}
 	}
 }
