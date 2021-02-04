@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Student } from 'src/app/core/models/student.model';
 import { StudentService } from 'src/app/core/services/student.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { StudentService } from 'src/app/core/services/student.service';
   styleUrls: ['./student-profile.component.scss']
 })
 export class StudentProfileComponent implements OnInit {
-  @Input() public student: any;
+  @Input() public student: Student;
   @Input() public coursesAdded: number = 0;
 
   constructor(
@@ -21,10 +22,9 @@ export class StudentProfileComponent implements OnInit {
 
   confirmStudent(){
     this.studentService.confirmStudent(this.student.id).subscribe(
-      (response: any)=>{
+      (response)=>{
         this.router.navigateByUrl('/');
-      },
-      (error: any)=>{}
+      }
     )
   }
 

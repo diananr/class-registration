@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Student } from 'src/app/core/models/student.model';
 import { StudentService } from 'src/app/core/services/student.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StudentService } from 'src/app/core/services/student.service';
 })
 export class DashboardComponent implements OnInit {
 
-  public students: any = [];
+  public students: Student[] = [];
   public studentsSummary = {
     pending: {
       label: 'Pendientes por editar',
@@ -35,8 +36,8 @@ export class DashboardComponent implements OnInit {
 
   getStudents(){
     this.studentService.getAllStudents().subscribe(
-      (response: any)=>{
-        this.students = response.data;
+      (response: Student[])=>{
+        this.students = response;
         this.students.forEach((s)=>{
           if(s.state == 'pending')  this.studentsSummary.pending.counter += 1 ;
           if(s.state == 'error')    this.studentsSummary.block.counter += 1;
@@ -46,7 +47,6 @@ export class DashboardComponent implements OnInit {
         this.studentsSummary.block.percent = `${(this.studentsSummary.block.counter * 100 / this.students.length).toFixed(0)}%`;
         this.studentsSummary.confirmed.percent = `${(this.studentsSummary.confirmed.counter * 100 / this.students.length).toFixed(0)}%`;
       },
-      (error)=>{}
     )
   }
 
@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
     this.getStudents();
   }
 
-  goToStudentDetail(student: any){
+  goToStudentDetail(student: Student){
     if(student.state == 'pending') this.router.navigateByUrl(`/student/${student.id}`);
   }
 

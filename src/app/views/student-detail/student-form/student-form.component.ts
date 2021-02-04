@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Student } from 'src/app/core/models/student.model';
 import { StudentService } from 'src/app/core/services/student.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StudentService } from 'src/app/core/services/student.service';
   styleUrls: ['./student-form.component.scss']
 })
 export class StudentFormComponent implements OnInit {
-  @Input() public student: any;
+  @Input() public student: Student;
 
   public studentFG: FormGroup;
 
@@ -39,7 +40,7 @@ export class StudentFormComponent implements OnInit {
     if(this.student.phone_number.length  == 2) this.addField('phone_number');
     if(this.student.email.length  == 2) this.addField('email');
 
-    const studentForm =  { ...this.student };
+    const studentForm: any =  { ...this.student };
     studentForm.phone_number = [];
     studentForm.email = [];
     studentForm.curriculumName = studentForm.enrollments[0].curriculum.name;
@@ -62,10 +63,9 @@ export class StudentFormComponent implements OnInit {
     body.email = body.email.map(e => e.value);
 
     this.studentService.updateStudent(this.student.id, body).subscribe(
-      (response: any)=>{
+      (response)=>{
         this.router.navigateByUrl('/');
-      },
-      (error: any)=>{}
+      }
     )
   }
 
@@ -83,9 +83,9 @@ export class StudentFormComponent implements OnInit {
     }
   }
 
-  removeField(i: any, controlName: string): void {
+  removeField(index: number, controlName: string): void {
     const çontrol = this.studentFG.controls[controlName] as FormArray;
-    if(this.studentFG.value[controlName].length != 1) çontrol.removeAt(i);
+    if(this.studentFG.value[controlName].length != 1) çontrol.removeAt(index);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Student } from 'src/app/core/models/student.model';
 
 @Component({
   selector: 'course-list',
@@ -7,7 +8,7 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit {
-  @Input() public student: any;
+  @Input() public student: Student;
   @Output() public coursesAddedEvent = new EventEmitter<any>();
 
   public listFG: FormGroup;

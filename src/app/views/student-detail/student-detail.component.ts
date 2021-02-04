@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Student } from 'src/app/core/models/student.model';
 import { StudentService } from 'src/app/core/services/student.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class StudentDetailComponent implements OnInit {
   public tabSelected = 'personal-data'
 
   private studentId: string;
-  public student: any;
+  public student: Student;
   public coursesAdded: number = 0;
 
   constructor(
@@ -22,10 +24,10 @@ export class StudentDetailComponent implements OnInit {
 
   getStudent(){
     this.studentService.getStudentById(this.studentId).subscribe(
-      (response: any)=>{
-        this.student = response.data;
+      (response: Student)=>{
+        this.student = response;
       },
-      (error: any)=>{
+      (error: HttpErrorResponse)=>{
         this.router.navigateByUrl('/');
       }
     )
