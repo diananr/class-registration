@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { COURSE_STATE } from 'src/app/core/constants/course-state';
+import { COURSE_STATE, COURSE_STATE_LABEL } from 'src/app/core/constants/course-state';
 import { Student } from 'src/app/core/models/student.model';
 
 @Component({
@@ -38,6 +38,7 @@ export class CourseListComponent implements OnInit {
       const isChecked = localData ? course.checked : course.state === COURSE_STATE.APPROVED;
 
       course.checked = isChecked;
+      course.stateLabel = COURSE_STATE_LABEL[course.state.toUpperCase()];
 
       this.addField(course.state === COURSE_STATE.APPROVED);
       courseList.push({
