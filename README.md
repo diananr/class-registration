@@ -1,27 +1,46 @@
-# ClassRegistration
+# Foris - Registro de clases
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+Este proyecto es un submódulo de apoyo a las personas que trabajan en inscribir asignaturas a estudiantes universitarios. Para ello se hace mención a dos entidades importantes, los administradores y los estudiantes.
 
-## Development server
+## Figma ✨
+  - [Mockup](https://www.figma.com/file/Awx8CZF9bOzo63ambdAnki/Test-front?node-id=11%3A119)
+  - [Prototipo](https://www.figma.com/proto/Awx8CZF9bOzo63ambdAnki/Test-front?node-id=63%3A987&viewport=57%2C23%2C0.20488262176513672&scaling=scale-down)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Pasos para levantar el proyecto 🚀
 
-## Code scaffolding
+1. Instalar globalmente Angular: `npm install -g @angular/cli`
+2. Clonar el repositorio: `git clone https://github.com/diananr/class-registration.git`
+3. Acceder a la carpeta del proyecto: `cd class-registration`
+5. Instalar las dependencias: `npm install`
+5. Finalmente, para levantarlo `ng serve --open` y automáticamente se abrirá una pestaña en el navegador apuntando a `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Arquitectura 🛠️
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Cuando se trabaja con Angular suelen estar presentes los módulos Core y Shared, sin embargo al ser un proyecto pequeño decidí no añadir esta última porque van módulos reutilizables, pipes, directivas y componentes compartidos lo cual no fue necesario.
 
-## Running unit tests
+  - Core: Esta carpeta contiene archivos que sólo necesitamos cargarlos una vez y nos van a ser útiles para todo el proyecto. Aquí suelen estar los incerterceptos, guards, services, constanst, enums, utils.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  - Views: Como es un proyecto pequeño decidí sólo tener un módulo donde pueda alojar las dos vistas: dashboard y student-detail.
+    - Dashboard: Aquí se encuentra la lista de estudiantes y el resumen del administrador.
 
-## Running end-to-end tests
+    - Student-Detail: Esta vista contiene tres secciones: el perfil del estudiante, el formulario del estudiante y la lista de cursos del estudiante. Como estas contenian su propia lógica, opté por separarlas en componentes y manejar la comunicación mediante Inputs y Outputs.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Consideraciones 📋
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Cuando el botón primario (que tiene el color dark-blue) está deshabilitado es de color light-blue.
+- Para guardar un número teléfono se tiene que incluir el código del país, ya que tiene la validación por Regex.
+
+## Siguientes pasos ➡️
+
+- El archivo element.scss lo dividiría en archivos específicos como card.scss, button.scss, etc.
+- Crear mappers para no tener camelCase y snake_case en el proyecto.
+- Mostrar al usuario cuando los inputs no son válidos.
+
+
+## Autora ⌨️
+
+- Diana Navarro :)
+
+

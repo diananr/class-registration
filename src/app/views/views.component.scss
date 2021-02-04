@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors.scss";
+@import "../../assets/styles/fonts.scss";
 
 .header{
   border-radius: 0px 0px 16px 16px;
@@ -26,11 +27,23 @@
   background: $color-gradient;
   color: white;
   display: flex;
+  font-family: $font-light;
   justify-content: flex-end;
   padding: 20px 40px;
 
+  &-icons{
+    a:first-child{
+      margin-right: 18px;
+    }
+  }
+
   .isotipo{
+    height: 60px;
     margin-left: 20px;
+    width: 60px;
+    img{
+      height: 100%;
+    }
   }
 }
 
